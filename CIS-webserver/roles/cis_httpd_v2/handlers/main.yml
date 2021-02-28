@@ -1,0 +1,10 @@
+---
+# Restart service
+- name: Ensure service enabled and started
+  service:
+    name: '{{item}}'
+    state: restarted
+    enabled: True
+  with_items:
+  - mysqld
+  - httpd
