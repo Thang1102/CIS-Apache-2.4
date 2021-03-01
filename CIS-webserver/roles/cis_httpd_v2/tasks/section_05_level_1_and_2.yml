@@ -59,7 +59,13 @@
     - section05.8
 
 - name: 5.9. Ensure Old HTTP Protocol Versions Are Disallowed
-  shell: sh CIS-Script/Script_Old_HTTP_Protocol_Versions_Are_Disallowed.sh
+  blockinfile: 
+    path: /var/www/html/.htaccess
+    insertafter: '^RewriteEngine On'
+    block: |
+      RewriteCond %{THE_REQUEST} !HTTP/1\.1$
+      RewriteOptions Inherit
+      RewriteRule .* - [F]
   tags:
     - automated
     - section05.9

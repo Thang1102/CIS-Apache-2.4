@@ -6,7 +6,12 @@
     - section05.11
 
 - name: 5.12. Ensure IP Address Based Requests Are Disallowed
-  shell: sh CIS-Script/Script_IP_Address_Based_Requests_Are_Disallowed.sh
+  blockinfile: 
+    path: /var/www/html/.htaccess
+    insertafter:  "^RewriteRule . /index.php [L]"
+    block: |
+      RewriteCond %{HTTP_HOST} ^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$
+      RewriteRule (.*) http://thangblog247.tk/$1 [R=301,L]
   tags:
     - automated
     - section05.12
