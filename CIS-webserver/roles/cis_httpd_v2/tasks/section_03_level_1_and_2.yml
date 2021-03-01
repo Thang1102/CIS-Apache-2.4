@@ -72,7 +72,7 @@
     - section03.12
 
 - name: 3.13. Ensure Access to Special Purpose Application Writable Directories is Properly Restricted
-  shell: Script_Access_to_Special_Purpose_Application_Writable_Directories.sh
+  shell: sh Check/Script_Access_to_Special_Purpose_Application_Writable_Directories.sh
   tags: 
     - automated
     - section03.13
