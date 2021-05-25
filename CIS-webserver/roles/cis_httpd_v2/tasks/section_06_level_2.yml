@@ -25,7 +25,9 @@
 - name: 6.7. Ensure the OWASP ModSecurity Core Rule Set Is Installed and Enabled 
   shell: |
     cd /etc/httpd
-    git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git
+    git clone https://github.com/Thang1102/owasp-modsecurity-crs.git
+    cd owasp-modsecurity-crs
+    unzip owasp-modsecurity-crs.zip
     mv owasp-modsecurity-crs modsecurity-crs
     cd modsecurity-crs
     mv crs-setup.conf.example crs-setup.conf
