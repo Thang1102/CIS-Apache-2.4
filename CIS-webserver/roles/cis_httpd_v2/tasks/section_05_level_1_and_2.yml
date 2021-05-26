@@ -58,17 +58,17 @@
     - automated
     - section05.8
 
-- name: 5.9. Ensure Old HTTP Protocol Versions Are Disallowed
-  blockinfile: 
-    path: /var/www/html/.htaccess
-    insertafter: '^RewriteEngine On'
-    block: |
-      RewriteCond %{THE_REQUEST} !HTTP/1\.1$
-      RewriteOptions Inherit
-      RewriteRule .* - [F]
-  tags:
-    - automated
-    - section05.9
+# - name: 5.9. Ensure Old HTTP Protocol Versions Are Disallowed
+#   blockinfile: 
+#     path: /var/www/html/.htaccess
+#     insertafter: '^RewriteEngine On'
+#     block: |
+#       RewriteCond %{THE_REQUEST} !HTTP/1\.1$
+#       RewriteOptions Inherit
+#       RewriteRule .* - [F]
+#   tags:
+#     - automated
+#     - section05.9
 
 - name: 5.10. Ensure Access to .ht* Files Is Restricted
   shell: grep -e "^<Files \"\^\\\.ht\">\|Require all denied\|<\/Files>" -n {{apache_conf_dir}}/conf/httpd.conf > Check/Access_to_.ht*_Files_Is_Restricted.txt

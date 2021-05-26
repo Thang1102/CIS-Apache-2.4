@@ -17,7 +17,6 @@
     cp modsecurity.conf-recommended /etc/httpd/conf.d/modsecurity.conf
     cp unicode.mapping /etc/httpd/conf.d/
     echo "LoadModule security2_module modules/mod_security2.so" >> /etc/httpd/conf/httpd.conf
-    systemctl restart httpd
   tags:
     - automated
     - section06.6
@@ -26,8 +25,6 @@
   shell: |
     cd /etc/httpd
     git clone https://github.com/Thang1102/owasp-modsecurity-crs.git
-    cd owasp-modsecurity-crs
-    unzip owasp-modsecurity-crs.zip
     mv owasp-modsecurity-crs modsecurity-crs
     cd modsecurity-crs
     mv crs-setup.conf.example crs-setup.conf
