@@ -1,6 +1,6 @@
 --- 
 - name: 11.1. Ensure SELinux Is Enabled in Enforcing Mode
-  shell:  sestatus | grep -i mode >> Check/Check_SELinux_Is_Enabled_in_Enforcing_Mode.txt
+  shell:  sestatus >> Check/Check_SELinux_Is_Enabled_in_Enforcing_Mode.txt
   tags:
     - automated
     - section11.1
